@@ -92,8 +92,12 @@ Pre-setup Hva
 
     # cp -f /opt/axsh/wakame-vdc/dcmgr/config/hva.conf.example /etc/wakame-vdc/hva.conf
 
+Pre-setup Sta
+--------------
 
-Configuring Database
+    # cp -f /opt/axsh/wakame-vdc/dcmgr/config/sta.conf.example /etc/wakame-vdc/sta.conf
+
+Checking Configuration
 --------------------
 
 Check if the database is specified in /etc/wakame-vdc/dcmgr.conf
@@ -141,9 +145,8 @@ check if the following lines are described.
 
 
 
-Creating Database
+Initializing Wakame-VDC
 -----------------
-
 
 Before creating the database, you need to launch mysql-server.
 
@@ -153,11 +156,24 @@ To automatically launch mysql-server, execute the following command.
 
     # chkconfig mysqld on
 
+
 If you need additional demonstration data, please type the following commands.
 NOTICE: this script will erase all related database at first. We recommend to backup before doing this.
 
     # yum install -y wakame-vdc-vdcsh
     # /opt/axsh/wakame-vdc/tests/vdc.sh init
+
+Starting Wakame-VDC
+-----------------
+
+To automatically launch rabbitmq-server, execute the following command.
+
+    # chkconfig rabbitmq-server on
+
+Reboot os and wakame-vdc applications will start automatically.
+
+    # shutdown -r now
+
 
 Developer Zone
 ==============
