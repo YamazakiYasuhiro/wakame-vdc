@@ -2,7 +2,7 @@
 
 set -e
 
-tmp_path=$VDC_ROOT
+tmp_path="$VDC_ROOT/tmp"
 account_id=${account_id:?"account_id needs to be set"}
 
 cd ${VDC_ROOT}/dcmgr/
@@ -12,12 +12,12 @@ kvm -device ? 2>&1 | egrep 'name "lsi' -q || {
   image_features_opts="--virtio"
 }
 
-shlog ./bin/vdc-manage backupstorage add --uuid bkst-demo1 --display-name="'local storage'" --base-uri="'file://${VDC_ROOT}/images/'" --storage-type=local --description="'local backup storage under ${VDC_ROOT}/images/'"
+shlog ./bin/vdc-manage backupstorage add --uuid bkst-demo1 --display-name="'local storage'" --base-uri="'file://${VDC_ROOT}/tmp/images/'" --storage-type=local --description="'local backup storage under ${VDC_ROOT}/tmp/images/'"
 shlog ./bin/vdc-manage backupstorage add --uuid bkst-demo2 --display-name="'webdav storage'" --base-uri="'http://localhost:8080/images/'" --storage-type=webdav --description="'nginx based webdav storage'"
 
 # download demo image files.
 (
-  cd $VDC_ROOT/images
+  cd $VDC_ROOT/tmp/images
   # remove md5sum cache files.
   rm -f *.md5
 
