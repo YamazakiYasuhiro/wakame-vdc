@@ -19,8 +19,8 @@ cd ${abs_dirname}
 release_id=$(../helpers/gen-release-id.sh)
 [[ -f ${release_id}.tar.gz ]] && {
   echo "already built: ${release_id}" >/dev/stderr
-  exit 1
-}
+  exit 0
+} || :
 
 exec 2>${release_id}.err
 
