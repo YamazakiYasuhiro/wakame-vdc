@@ -6,8 +6,8 @@ set -e
 LANG=C
 LC_ALL=C
 
-#abs_path=$(cd $(dirname $0) && pwd)
-#cd ${abs_path}
+#abs_dirname=$(cd $(dirname $0) && pwd)
+#cd ${abs_dirname}
 specfile=${1:-../SPECS/wakame-vdc.spec}
 
 [ -f ${specfile} ] || {

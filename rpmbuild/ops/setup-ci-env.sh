@@ -6,14 +6,14 @@ set -x
 LANG=C
 LC_ALL=C
 
-abs_path=$(cd $(dirname $0) && pwd)
+abs_dirname=$(cd $(dirname $0) && pwd)
 
 function update_repo() {
   git pull
 }
 
 function setup_chroot_dir() {
-  cd ${abs_path}/../../
+  cd ${abs_dirname}/../../
   [ -d tmp/vmapp_builder/chroot/base ] || mkdir -p tmp/vmapp_builder/chroot/base/
   cd   tmp/vmapp_builder/chroot/base
 

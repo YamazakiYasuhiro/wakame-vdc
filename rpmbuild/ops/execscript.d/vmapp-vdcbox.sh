@@ -6,8 +6,8 @@ set -x
 
 LANG=C
 
-abs_path=$(cd $(dirname $0) && pwd)
-mysysconfig=${abs_path}/$(basename $0).config
+abs_dirname=$(cd $(dirname $0) && pwd)
+mysysconfig=${abs_dirname}/$(basename $0).config
 [ -f ${mysysconfig} ] && . ${mysysconfig}
 
 chroot_dir="${1}"

@@ -3,15 +3,15 @@
 set -x
 set -e
 
-abs_path=$(cd $(dirname $0) && pwd)
-wakame_root=$(cd ${abs_path}/../../ && pwd)
-log_dir=${abs_path}/logs
+abs_dirname=$(cd $(dirname $0) && pwd)
+wakame_root=$(cd ${abs_dirname}/../../ && pwd)
+log_dir=${abs_dirname}/logs
 repo_uri=${repo_uri:-git://github.com/axsh/wakame-vdc.git}
 
 #
 #
 #
-cd ${abs_path}
+cd ${abs_dirname}
 [ -d ${log_dir} ] || mkdir -p ${log_dir}
 
 #
