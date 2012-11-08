@@ -28,7 +28,7 @@ function setup_chroot_dir() {
   archs="i686 x86_64"
   for arch in ${archs}; do
     [ -f ${distro_detail}_${arch}.tar.gz ] || curl -R -O http://dlc.wakame.axsh.jp.s3.amazonaws.com/demo/rootfs-tree/${distro_detail}_${arch}.tar.gz
-    [ -d ${distro_detail}_${arch}        ] || tar zxvpf ${distro_detail}_${arch}.tar.gz
+    [ -d ${distro_detail}_${arch}        ] || tar zxpf ${distro_detail}_${arch}.tar.gz
     [ -d ${distro}_${arch}               ] || mv ${distro_detail}_${arch} ${distro}_${arch}
   done
 }
