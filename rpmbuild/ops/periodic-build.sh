@@ -44,7 +44,7 @@ function run_readonly_phase() {
   build_id=$(git log -n 1 --pretty=format:"%h")
   git show -p ${build_id}
 
-  BUILD_ID=${build_id} REPO_URI=${repo_uri} ./rules ${task}
+  VDC_BUILD_ID=${build_id} REPO_URI=${repo_uri} ./rules ${task}
 }
 
 case "$1" in
