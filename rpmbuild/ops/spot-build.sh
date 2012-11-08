@@ -7,10 +7,14 @@
 set -e
 set -x
 
+abs_dirname=$(cd $(dirname $0) && pwd)
+
 [[ $UID -ne 0 ]] && {
   echo "ERROR: Run as root" >/dev/stderr
   exit 1
 }
+
+cd ${abs_dirname}
 
 release_id=$(../helpers/gen-release-id.sh)
 [[ -f ${release_id}.tar.gz ]] && {
