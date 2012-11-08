@@ -22,7 +22,13 @@ release_id=$(../helpers/gen-release-id.sh)
   exit 0
 } || :
 
-exec 2>${release_id}.err
+# exec 2>${release_id}.err
+#
+# Jenkins reported following errors.
+#
+# + exec
+# Build step 'Execute shell' marked build as failure
+# Finished: FAILURE
 
 time REPO_URI=$(cd ../../.git && pwd) ./rules clean rpm
 
