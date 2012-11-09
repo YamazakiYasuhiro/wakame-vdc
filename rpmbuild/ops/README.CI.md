@@ -53,7 +53,7 @@ In order to upload RPMs to Wakame-VDC yum repository.
 
     $ git clone git://github.com/axsh/wakame-vdc.git
     $ cd wakame-vdc/rpmbuild/ops/
-    $ ./setup-ci-env.sh
+    $ sudo ./setup-ci-env.sh setup_chroot_dir
 
 
 ### Once checking to build RPMs.
