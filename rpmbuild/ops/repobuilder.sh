@@ -19,6 +19,7 @@ declare release_id=$(${abs_dirname}/../helpers/gen-release-id.sh)
 ## include files
 
 . ${abs_dirname}/functions/utils.sh
+. ${abs_dirname}/functions/git.sh
 . ${abs_dirname}/functions/repo.sh
 
 ### prepare

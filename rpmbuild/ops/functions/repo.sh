@@ -2,10 +2,11 @@
 #
 # requires:
 #  bash
-#  s3cmd, git, sed
+#  s3cmd
 #
 # imports:
 #  utils: checkroot
+#  git: current_branch_name
 #
 
 function add_repo_options() {
@@ -28,7 +29,7 @@ function check_repo_dir() {
 }
 
 function upload_repo() {
-  local opsroot_dir=$1 release_id=$2 branch_name=${3:-$(git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')}
+  local opsroot_dir=$1 release_id=$2 branch_name=${3:-$(current_branch_name)}
   [[ -n "${opsroot_dir}" ]] || { echo "[ERROR] invalid argument (repo:${LINENO})" >&2; return 1; }
   [[ -n "${release_id}"  ]] || { echo "[ERROR] invalid argument (repo:${LINENO})" >&2; return 1; }
 
@@ -50,7 +51,7 @@ function spot_build() {
 }
 
 function build_repo() {
-  local opsroot_dir=$1 release_id=$2 branch_name=${3:-$(git branch --no-color | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')}
+  local opsroot_dir=$1 release_id=$2 branch_name=${3:-$(current_branch_name)}
   [[ -n "${opsroot_dir}" ]] || { echo "[ERROR] invalid argument (repo:${LINENO})" >&2; return 1; }
   [[ -n "${release_id}"  ]] || { echo "[ERROR] invalid argument (repo:${LINENO})" >&2; return 1; }
 
