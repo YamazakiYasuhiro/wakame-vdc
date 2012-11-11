@@ -9,7 +9,7 @@
 #
 
 function add_repo_options() {
-  release_id=${release_id:-asdf}
+  release_id=${release_id:-}
 
   s3_backet=${s3_backet:-dlc.wakame.axsh.jp}
   repo_base_path=${repo_base_path:-packages/rhel/6}
